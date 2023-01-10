@@ -10,9 +10,13 @@ export default defineConfig({
       formats: ['es', 'umd'],
       fileName: 'my-lib/my-lib',
     },
-    minify: true,
+    copyPublicDir: false,
+    sourcemap: 'inline',
+    minify: 'esbuild'
   },
   plugins:[
-    dts(),
+    dts({
+      insertTypesEntry: true,
+    }),
   ]
 });
